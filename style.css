@@ -26,6 +26,7 @@ body {
 
 body {
   background-color: #f7f7f7;
+  overflow: hidden; 
 }
 
 #nav {
@@ -82,6 +83,42 @@ body {
   margin: 0 20px;
   font-weight: 100;
 }
+
+@keyframes rotate {
+    from {
+      rotate: 0deg;
+    }
+    
+    50% {
+      scale: 1 1.5;
+    }
+    
+    to {
+      rotate: 360deg;
+    }
+  }
+  
+  #blob {
+    background-color: white;
+    height: 24vmax;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: linear-gradient(to right, rgb(229, 79, 20), mediumpurple);
+    animation: rotate 20s infinite;
+    opacity: 0.8;
+  }
+  
+  #blur {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    /* z-index: 2; */
+    backdrop-filter: blur(8vmax);
+  }
 
 #cursor {
   height: 220px;
@@ -514,6 +551,7 @@ section {
     width: 100%;
     position: relative;
     margin-bottom: 189px;
+    background-color: #f7f7f7;
 }
 
 .newsletter::after{
@@ -550,6 +588,12 @@ section {
     border: none;
     background-color: #f7f7f7;
     font-size: 1vw;
+}
+
+.newsletter button i{
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
 }
 
 .footer-section2{
@@ -672,6 +716,16 @@ color: #bbbbbb;
     margin: 0 20px;
     font-weight: 100;
   }
+
+  
+  #blob {
+    display: none;
+  }
+  
+  #blur {
+    display: none;
+  }
+
 
   #page1 {
     /* background-color: red; */
