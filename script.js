@@ -200,3 +200,34 @@ sections.forEach((section) => {
     }
   });
 });
+// Image heatwave effect 
+function imageHeatWaveEffect(){
+  let img1 = document.querySelector('#img1');
+  let img2 = document.querySelector('#img2');
+  
+  const imgs = [img1, img2];
+  let timeoutId;
+
+  imgs.forEach((img, index) => {
+      img.addEventListener("mouseover", () => {
+          gsap.to(`#heatwave${index + 1}`, 2, {
+              attr: { baseFrequency: "0.022 0.01" },
+          });
+
+          timeoutId = setTimeout(() => {
+              gsap.to(`#heatwave${index + 1}`, 2, {
+                  attr: { baseFrequency: "0.00 0.00" },
+              });
+          }, 2000); // Change to 2000 to match the 2-second duration
+      });
+
+      img.addEventListener("mouseleave", () => {
+          clearTimeout(timeoutId); // Clear the timeout if the mouse leaves before 2 seconds
+          gsap.to(`#heatwave${index + 1}`, 2, {
+              attr: { baseFrequency: "0.00 0.00" },
+          });
+      });
+  });
+}
+
+imageHeatWaveEffect();
