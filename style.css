@@ -253,7 +253,7 @@ body {
   
   .content-page3{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     padding: 3vw 1vw;
     padding-right: 9vw;
@@ -409,6 +409,13 @@ body {
     margin-right: 1vw;
 }
 
+/* heatwave effect for image */
+#img1{
+  filter: url(#heat1);
+}
+#img2{
+  filter: url(#heat2);
+}
 
 /* horizontal scroll */
 .wrapper {
