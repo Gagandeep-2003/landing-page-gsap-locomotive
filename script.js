@@ -39,6 +39,48 @@ function locomotiveAnimation() {
 
 locomotiveAnimation();
 
+function loadingAnimation(){
+  
+  gsap.fromTo(
+    "#nav",
+    { opacity: 0 },
+    {
+      opacity: 1,
+      // display: "none",
+      duration: 1.5,
+      delay: 4,
+    }
+  );
+  
+  gsap.fromTo(
+    ".loading-page",
+    { opacity: 1 },
+    {
+      opacity: 0,
+      display: "none",
+      duration: 1.5,
+      delay: 3.7,
+    }
+  );
+  
+  gsap.fromTo(
+    ".logo-name",
+    {
+      y: 50,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 2,
+      delay: 0.5,
+    }
+  );
+  
+}
+
+loadingAnimation();
+
 function navbarAnimation() {
   gsap.to("#nav-part1 svg", {
     transform: "translateY(-100%)",
@@ -200,6 +242,7 @@ sections.forEach((section) => {
     }
   });
 });
+
 // Image heatwave effect 
 function imageHeatWaveEffect(){
   let img1 = document.querySelector('#img1');
