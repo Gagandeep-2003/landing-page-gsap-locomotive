@@ -28,6 +28,66 @@ body {
   background-color: #f7f7f7;
 }
 
+/* loading animation */
+.loading-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  color: #191654;
+}
+
+#svg {
+  height: 150px;
+  width: 150px;
+  stroke: white;
+  fill-opacity: 0;
+  stroke-width: 3px;
+  stroke-dasharray: 4500;
+  animation: draw 8s ease;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 4500;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+ /* hide scrollbar for loading page */
+ /* Hide scrollbar for the loading page */
+.loading-page {
+  overflow: hidden; /* Prevents scrollbars from appearing */
+}
+
+.loading-page::-webkit-scrollbar {
+  display: none; /* Hides scrollbars in Chrome, Safari, and Opera */
+}
+
+.loading-page {
+  -ms-overflow-style: none; /* Hides scrollbars in Internet Explorer and Edge */
+  scrollbar-width: none; /* Hides scrollbars in Firefox */
+}
+
+
+.logo-name {
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 12px;
+  text-transform: uppercase;
+  margin-left: 20px;
+  font-weight: bolder;
+}
+
+
 #nav {
   /* height: 100px; */
   width: 100%;
