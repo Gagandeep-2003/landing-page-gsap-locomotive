@@ -81,6 +81,45 @@ function loadingAnimation(){
 
 loadingAnimation();
 
+function responsiveNavbarAnimation(){
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuIcon = document.querySelector('.ri-menu-fill');
+    const closeIcon = document.getElementById('close-icon');
+    const overlay = document.getElementById('overlay');
+    const navigation = document.getElementById('navigation');
+    const previousNavbar = document.querySelector('#twogood')
+    const previousNavbarLinks = document.querySelectorAll('#nav-part2 #links a')
+
+    menuIcon.addEventListener('click', toggleNavigation);
+    closeIcon.addEventListener('click', toggleNavigation);
+    overlay.addEventListener('click', toggleNavigation); // Close overlay on clicking outside navigation
+    menuIcon.addEventListener('click', () => {
+      previousNavbar.style.color = 'white';
+      previousNavbarLinks.style.color = 'white';
+    })
+    
+    menuIcon.addEventListener('click', () => {
+      previousNavbarLinks.forEach(link => {
+        link.style.color = 'white';
+      });
+    })
+    
+    function toggleNavigation() {
+      const isOpen = overlay.style.height === '100%';
+        previousNavbarLinks.forEach(link => {
+          link.style.color = '#5f5f5f';
+        });
+      previousNavbar.style.color = 'black';
+        overlay.style.height = isOpen ? '0' : '100%';
+        navigation.style.height = isOpen ? '0' : '100vh'; // Adjust height as needed
+    }
+});
+
+
+}
+
+responsiveNavbarAnimation();
+
 function navbarAnimation() {
   gsap.to("#nav-part1 svg", {
     transform: "translateY(-100%)",
@@ -112,7 +151,7 @@ function videoconAnimation() {
   videocon.addEventListener("mouseenter", function () {
     gsap.to(playbtn, {
       scale: 1,
-      opacity: 1
+      opacity: 1,
     });
   });
   videocon.addEventListener("mouseleave", function () {
