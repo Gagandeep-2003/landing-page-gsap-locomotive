@@ -86,12 +86,86 @@ body {
   margin-left: 20px;
   font-weight: bolder;
 }
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  transition: height 0.3s ease;
+  z-index: 1000;
+}
 
+#navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 80;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.nav-links li {
+  margin: 0 2vw;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-family: futura;
+  font-weight: bolder;
+  font-size: 5vw;
+  text-transform: uppercase;
+  line-height: 5vw;
+  position: relative;
+}
+
+
+.nav-links li::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background-color: #fff;
+}
+
+.nav-links li:hover::after {
+  width: 100px;
+  height: 3px;
+}
+
+#close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
 
 #nav {
-  /* height: 100px; */
+  height: 100px;
   width: 100%;
-  /* background-color: burlywood; */
   position: fixed;
   z-index: 99;
   display: flex;
@@ -123,7 +197,6 @@ body {
 
 #nav-part2 #links a {
   text-transform: uppercase;
-
   text-decoration: none;
   color: #333;
   font-weight: 500;
@@ -140,9 +213,9 @@ body {
 #nav-part2 #icons i {
   font-size: 18px;
   margin: 0 20px;
+  z-index: 99;
   font-weight: 100;
 }
-
 
 
 #cursor {
